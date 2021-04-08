@@ -198,7 +198,7 @@ if args.resume:
     model.load_state_dict(ckpnt['model'])
     optimizer.load_state_dict(ckpnt['optimizer'])
 
-
+'''
 for epoch in range(start_epoch, int(args.TRAINING_ITERATIONS / 100)):
     if epoch % 10 == 0:
         ckpnt = {
@@ -210,14 +210,14 @@ for epoch in range(start_epoch, int(args.TRAINING_ITERATIONS / 100)):
 
     train(epoch)
     test(epoch)
-
+'''
 
 def plot_gen_curve(task_type):
     '''
     # plot generated 1D regression curve after training
     '''
-    assert task_type in {'a', 'b', 'c'}
-    path  = 'ckpnt/task_'+task_type+'/ckpnt_file.pth'
+    assert task_type in {1, 2, 3}
+    path  = 'ckpnt/task_'+chr(ord('a')+task_type-1)+'/ckpnt_file.pth'
     ckpnt = torch.load(path)
     model.load_state_dict(ckpnt['model'])
     optimizer.load_state_dict(ckpnt['optimizer'])
