@@ -198,7 +198,6 @@ if args.resume:
     model.load_state_dict(ckpnt['model'])
     optimizer.load_state_dict(ckpnt['optimizer'])
 
-'''
 for epoch in range(start_epoch, int(args.TRAINING_ITERATIONS / 100)):
     if epoch % 10 == 0:
         ckpnt = {
@@ -210,7 +209,7 @@ for epoch in range(start_epoch, int(args.TRAINING_ITERATIONS / 100)):
 
     train(epoch)
     test(epoch)
-'''
+
 
 def plot_gen_curve(task_type):
     '''
@@ -248,4 +247,4 @@ def plot_gen_curve(task_type):
         plot_data = (trgt_x, trgt_y, cxt_x, cxt_y, trgt_mu_n_sigma["mu"], trgt_mu_n_sigma["sigma"])
         plot_functions_1d(args.LEN_SEQ, args.LEN_GIVEN, args.LEN_GEN, log_dir, plot_data)
 
-plot_gen_curve(args.task_type)
+# plot_gen_curve(args.task_type)
